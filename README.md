@@ -20,8 +20,8 @@ The project explores this through direct click commands, pinned **Forces & Build
 
 Read the first three sections for the problem and decisions; continue for requirements, specifications and delivery evidence. PDFs are reserved for future uploads.
 
-| Portfolio section | Focus | Documentation |
-| --- | --- | --- | --- |
+| Portfolio section | Focus | Documentation | 
+| --- | --- | --- | 
 | **00 · Project context** | Intended player, problem, value proposition and scope. | [Overview](docs/OVERVIEW.md) | 
 | **01 · Discovery & experience** | Player needs, first-session journey and friction hypotheses. | [Experience design](docs/UX.md) |
 | **02 · Product decisions** | Priorities, alternatives and explicit trade-offs. | [Decision record](docs/PRODUCT-DECISIONS.md) | 
