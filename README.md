@@ -1,5 +1,7 @@
 # Border Command
+
 ### Browser strategy game · Product development portfolio
+
 **By Chaitanya Kulkarni**
 
 Border Command is a playable real-time strategy game about balancing defence, movement, reconnaissance and limited resources. Players command India in a fictional conventional conflict against a computer-controlled Pakistan, using recognizable geography and platform-inspired units.
@@ -9,11 +11,13 @@ Border Command is a playable real-time strategy game about balancing defence, mo
 > Fictional scenario • Abstracted capabilities. Military installations, deployments and performance values are fictional. “Real-time” describes the simulation, not live intelligence.
 
 ## The product question
+
 **How can someone understand the game immediately, yet discover enough depth to keep playing?**
 
 The project explores this through direct click commands, pinned **Forces & Build**, clear terrain obstacles, connected territories and progressively richer scenarios. Its evolution shows how creator feedback became product priorities, interaction choices and engineering checks.
 
 ## Product development portfolio
+
 Read the first three sections for the problem and decisions; continue for requirements, specifications and delivery evidence. PDFs are reserved for future uploads.
 
 | Portfolio section | Focus | Documentation | PDF |
@@ -31,6 +35,7 @@ Read the first three sections for the problem and decisions; continue for requir
 | **10 · Outcomes & next steps** | Delivered artifacts, unproven hypotheses and next priorities. | [Roadmap](docs/ROADMAP.md) | [Reserved](pdfs/) |
 
 ## What the current game explores
+
 - Ground, air, naval, drone and air-defence roles, with single-click attack orders.
 - A larger theatre, named command views, terrain relief and highlighted crossings.
 - Group movement, supply, sector capture, cinematic following and adjustable difficulty.
@@ -39,6 +44,7 @@ Read the first three sections for the problem and decisions; continue for requir
 Implementation records describe **15 scenarios, 29 player-deployable types and 36 total catalog types**. These are game-content counts, not real inventories. See [validation and limitations](docs/VALIDATION.md).
 
 ## Repository guide
+
 | Folder | Purpose |
 | --- | --- |
 | [docs/](docs/) | Concise product narrative, PRD, UX, decisions and evaluation. |

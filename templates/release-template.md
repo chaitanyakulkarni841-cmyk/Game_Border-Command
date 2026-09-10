@@ -1,0 +1,12 @@
+# Release: [version]
+
+**Source revision:** [commit]  
+**Player problem:** [why the change matters]  
+**Changes:** [behaviour visible to the player]  
+**Trade-offs:** [what becomes harder or more costly]  
+**Compatibility:** [save and configuration migration]  
+**Verification:** [exact command/check, result and revision]  
+**Manual coverage:** [devices, browsers and tasks actually checked]  
+**Known limitations:** [remaining risks and unsupported claims]  
+**Play link:** [verified deployed URL]  
+**Rollback:** [previous verified revision and save handling]

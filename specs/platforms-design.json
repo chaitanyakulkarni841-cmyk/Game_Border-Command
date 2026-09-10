@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "status": "design-roster-not-source-export",
+  "statistics": "fictional gameplay only; numerical values pending source import",
+  "entries": [
+    {
+      "side": "India",
+      "name": "S-400-inspired",
+      "icon": "../images/icons/sam.svg",
+      "role": "Area air defence",
+      "balance": "Broad abstract coverage; costly deployment, finite ammunition, radar/supply support and relocation delay."
+    },
+    {
+      "side": "India",
+      "name": "Akash-inspired",
+      "icon": "../images/icons/sam.svg",
+      "role": "Supporting air defence",
+      "balance": "Protect local objectives; trades coverage for support cost and mobility."
+    },
+    {
+      "side": "India",
+      "name": "Rafale-inspired",
+      "icon": "../images/icons/fighter.svg",
+      "role": "Multirole aircraft",
+      "balance": "Flexible mission choice; endurance, readiness and ammunition constrain persistence."
+    },
+    {
+      "side": "India",
+      "name": "Su-30MKI-inspired",
+      "icon": "../images/icons/fighter.svg",
+      "role": "Heavy fighter",
+      "balance": "A heavier air role balanced by higher support demand; no guaranteed superiority."
+    },
+    {
+      "side": "India",
+      "name": "Tejas-inspired",
+      "icon": "../images/icons/fighter.svg",
+      "role": "Light fighter",
+      "balance": "A lighter air role with limited endurance and payload in gameplay."
+    },
+    {
+      "side": "India",
+      "name": "BrahMos-inspired",
+      "icon": "../images/icons/missile.svg",
+      "role": "Conventional strike",
+      "balance": "A platform-inspired strike role requested in the expanded brief; costly finite shots against eligible fictional assets."
+    },
+    {
+      "side": "Pakistan",
+      "name": "JF-17-inspired",
+      "icon": "../images/icons/fighter.svg",
+      "role": "Multirole aircraft",
+      "balance": "Flexible opposing air role; fictional balance values and support needs."
+    },
+    {
+      "side": "Pakistan",
+      "name": "F-16-inspired",
+      "icon": "../images/icons/fighter.svg",
+      "role": "Fighter",
+      "balance": "Opposing fighter role with finite mission resources."
+    },
+    {
+      "side": "Pakistan",
+      "name": "J-10C-inspired",
+      "icon": "../images/icons/fighter.svg",
+      "role": "Fighter",
+      "balance": "Alternative opposing air role; no real-world performance ranking implied."
+    },
+    {
+      "side": "Pakistan",
+      "name": "HQ-9/P-inspired",
+      "icon": "../images/icons/sam.svg",
+      "role": "Area air defence",
+      "balance": "Opposing defensive role balanced through supply, ammunition and readiness."
+    },
+    {
+      "side": "Shared role",
+      "name": "Reconnaissance drone",
+      "icon": "../images/icons/drone.svg",
+      "role": "Detection",
+      "balance": "Reveals contacts; trades combat power for information."
+    },
+    {
+      "side": "Shared role",
+      "name": "Strike drone",
+      "icon": "../images/icons/drone.svg",
+      "role": "Drone combat",
+      "balance": "Adds a drone attack role with finite capacity and counter-drone interaction."
+    },
+    {
+      "side": "Shared role",
+      "name": "Counter-drone system",
+      "icon": "../images/icons/counterdrone.svg",
+      "role": "Drone defence",
+      "balance": "Specialized protection with resource and coverage limits."
+    },
+    {
+      "side": "Shared role",
+      "name": "Radar vehicle",
+      "icon": "../images/icons/radar.svg",
+      "role": "Identification/support",
+      "balance": "Supports detection and defence; depends on positioning and protection."
+    },
+    {
+      "side": "Shared role",
+      "name": "Logistics unit",
+      "icon": "../images/icons/logistics.svg",
+      "role": "Sustainment",
+      "balance": "Supplies or replenishes supported forces; competes for resources and requires protection."
+    },
+    {
+      "side": "Shared role",
+      "name": "River-crossing engineers",
+      "icon": "../images/icons/engineer.svg",
+      "role": "Mobility support",
+      "balance": "Enable eligible crossings; route utility rather than a universal terrain bypass."
+    },
+    {
+      "side": "Shared role",
+      "name": "Armour",
+      "icon": "../images/icons/armor.svg",
+      "role": "Ground manoeuvre",
+      "balance": "Ground pressure with terrain, route and supply dependencies."
+    },
+    {
+      "side": "Shared role",
+      "name": "Infantry",
+      "icon": "../images/icons/infantry.svg",
+      "role": "Ground control",
+      "balance": "Supports holding and capturing sectors; requires protection and sustainment."
+    },
+    {
+      "side": "Shared role",
+      "name": "Artillery",
+      "icon": "../images/icons/artillery.svg",
+      "role": "Ground support",
+      "balance": "A supporting fires role; readiness, ammunition and fictional targeting rules apply."
+    },
+    {
+      "side": "Shared role",
+      "name": "Fleet",
+      "icon": "../images/icons/ship.svg",
+      "role": "Naval control",
+      "balance": "Sea movement and supporting naval decisions; role statistics remain fictional."
+    },
+    {
+      "side": "Installation",
+      "name": "Airbase / forward base",
+      "icon": "../images/icons/base.svg",
+      "role": "Basing and deployment",
+      "balance": "Fictional installation supporting eligible deployment, repair or mission return."
+    },
+    {
+      "side": "Installation",
+      "name": "Logistics hub",
+      "icon": "../images/icons/logistics.svg",
+      "role": "Resource support",
+      "balance": "Creates a sustainment objective and a protection decision."
+    },
+    {
+      "side": "Installation",
+      "name": "Command post",
+      "icon": "../images/icons/base.svg",
+      "role": "Objective/control",
+      "balance": "A fictional military objective whose importance is defined by the scenario."
+    }
+  ]
+}
