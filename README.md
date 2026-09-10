@@ -20,19 +20,19 @@ The project explores this through direct click commands, pinned **Forces & Build
 
 Read the first three sections for the problem and decisions; continue for requirements, specifications and delivery evidence. PDFs are reserved for future uploads.
 
-| Portfolio section | Focus | Documentation | PDF |
+| Portfolio section | Focus | Documentation |
 | --- | --- | --- | --- |
-| **00 · Project context** | Intended player, problem, value proposition and scope. | [Overview](docs/OVERVIEW.md) | [Reserved](pdfs/) |
-| **01 · Discovery & experience** | Player needs, first-session journey and friction hypotheses. | [Experience design](docs/UX.md) | [Reserved](pdfs/) |
-| **02 · Product decisions** | Priorities, alternatives and explicit trade-offs. | [Decision record](docs/PRODUCT-DECISIONS.md) | [Reserved](pdfs/) |
+| **00 · Project context** | Intended player, problem, value proposition and scope. | [Overview](docs/OVERVIEW.md) | 
+| **01 · Discovery & experience** | Player needs, first-session journey and friction hypotheses. | [Experience design](docs/UX.md) |
+| **02 · Product decisions** | Priorities, alternatives and explicit trade-offs. | [Decision record](docs/PRODUCT-DECISIONS.md) | 
 | **03 · Product definition** | Requirements, user stories and acceptance criteria. | [PRD](docs/PRD.md) | [Reserved](pdfs/) |
-| **04 · Architecture & constraints** | Simulation, rendering, configuration and save boundaries. | [Architecture](docs/ARCHITECTURE.md) | [Reserved](pdfs/) |
-| **05 · Platforms & visual language** | Platform-inspired roles, balancing principles and icon key. | [Unit specifications](specs/WEAPONS.md) | [Reserved](pdfs/) |
-| **06 · Scenarios & player loop** | Objectives, pacing and replayable decisions. | [Scenarios](specs/SCENARIOS.md) · [Player loop](workflows/player-loop.md) | [Reserved](pdfs/) |
-| **07 · Evaluation & testing** | Recorded engineering checks and proposed usability study. | [Validation](docs/VALIDATION.md) · [Measurement](docs/MEASUREMENT.md) | [Reserved](pdfs/) |
-| **08 · Evolution & delivery** | Five development stages, release approach and remaining gaps. | [Versions](versions/README.md) · [Release workflow](workflows/release.md) | [Reserved](pdfs/) |
-| **09 · Adoption & play** | Fast-start controls and useful feedback. | [Player guide](docs/CONTROLS.md) | [Reserved](pdfs/) |
-| **10 · Outcomes & next steps** | Delivered artifacts, unproven hypotheses and next priorities. | [Roadmap](docs/ROADMAP.md) | [Reserved](pdfs/) |
+| **04 · Architecture & constraints** | Simulation, rendering, configuration and save boundaries. | [Architecture](docs/ARCHITECTURE.md) | 
+| **05 · Platforms & visual language** | Platform-inspired roles, balancing principles and icon key. | [Unit specifications](specs/WEAPONS.md) | 
+| **06 · Scenarios & player loop** | Objectives, pacing and replayable decisions. | [Scenarios](specs/SCENARIOS.md) · [Player loop](workflows/player-loop.md) | 
+| **07 · Evaluation & testing** | Recorded engineering checks and proposed usability study. | [Validation](docs/VALIDATION.md) · [Measurement](docs/MEASUREMENT.md) | 
+| **08 · Evolution & delivery** | Five development stages, release approach and remaining gaps. | [Versions](versions/README.md) · [Release workflow](workflows/release.md) |
+| **09 · Adoption & play** | Fast-start controls and useful feedback. | [Player guide](docs/CONTROLS.md) |
+| **10 · Outcomes & next steps** | Delivered artifacts, unproven hypotheses and next priorities. | [Roadmap](docs/ROADMAP.md) | 
 
 ## What the current game explores
 
