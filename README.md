@@ -4,7 +4,7 @@
 
 **By Chaitanya Kulkarni**
 
-Border Command is a playable real-time strategy game about balancing defence, movement, reconnaissance and limited resources. Players command India in a fictional conventional conflict against a computer-controlled Pakistan, using recognizable geography and platform-inspired units.
+Border Command is a playable real-time strategy game about balancing defence, movement, reconnaissance and limited resources. Players command India in a fictional conventional conflict against a computer-controlled Pakistan, using recognizable geography and platform-inspired units. From Brahmos and Rafale to drone warfare, it covers real world weapons and scenarios like building bridge for river crossing. Play full screen for max experience. 
 
 **[▶ Play Border Command](https://border-command.chaitanyakulkarni841.chatgpt.site)** · [Quick controls](docs/CONTROLS.md) · [Product requirements](docs/PRD.md) · [Version evolution](versions/README.md)
 
