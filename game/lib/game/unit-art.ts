@@ -1,0 +1,4 @@
+import type {Kind} from './catalog.ts';
+const ORIGINAL:Partial<Record<Kind,number>>={rafale:0,su30:1,tejas:2,drone:3,jf17:2,f16:4,j10:5,t90:6,arjun:7,bmp:8,artillery:9,s400:10,hq9:10,akash:11,brahmos:12,radar:13,logistics:14,infantry:15,engineer:16,alkhalid:17,destroyer:18,frigate:19,type054:19,submarine:20,agosta:20,carrier:21,supplyship:22,airfield:23};
+const EXTRA:Partial<Record<Kind,number>>={armeddrone:0,interceptordrone:1,counterdrone:2,bridgelayer:3,bridge:4};
+export function unitArt(kind:Kind){const extra=EXTRA[kind],old=ORIGINAL[kind];if(extra===undefined&&old===undefined)return null;const cell=extra??old!,isNew=extra!==undefined,cellSize=isNew?512:256,columns=isNew?3:6;return{path:isNew?'/assets/new-units.png':'/assets/unit-atlas.png',x:cell%columns*cellSize+(isNew?0:8),y:Math.floor(cell/columns)*cellSize+(isNew?0:8),width:isNew?(extra===0?550:512):240,height:isNew?512:240,correction:!isNew&&[10,11,12,13,14,16].includes(cell)?180:0};}

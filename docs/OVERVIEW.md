@@ -1,32 +1,40 @@
-# Project context
+# Border Command: product context
 
-[Portfolio index](../README.md)
+[Portfolio index](../README.md) · [Play the game](https://border-command.chaitanyakulkarni841.chatgpt.site)
 
-## Problem
+**I wanted to build a strategy game that someone could open, understand and start playing immediately—while still discovering depth as they played.** Border Command puts the player in command of India in fictional conventional scenarios against a computer-controlled Pakistan. My main challenge was making the first useful action obvious without removing the decisions that make strategy interesting.
 
-Strategy games can offer depth while making the first useful action hard to discover. Border Command investigates that tension: a player should understand what to select and where to click, then learn why reconnaissance, supply and terrain matter.
+## Intended player and need
 
-## Intended player
+I designed primarily for a strategy-curious player who wants to start immediately. I also wanted an experienced player to find depth in reconnaissance, terrain, connected territory and combined forces. These are my intended audiences; I have not validated them through a market study.
 
-The primary audience is a strategy-curious browser player who wants to begin quickly. A secondary audience is an experienced player looking for formation controls, connected territory and replayable scenarios. These are design assumptions, not validated market segments.
+**Job to be done:** “When I open the game, help me understand the situation, make a purposeful decision and see its effect without studying a manual.”
 
-**Job to be done:** “When I open a strategy game, help me understand the situation, make a purposeful decision and see its effect without studying a manual.”
+As I iterated, I kept returning to the same friction: too many attack steps, awkward map navigation, hard-to-find recruitment, slow movement, missed warnings and repetitive upkeep. That led me toward **direct control with helpful automation**.
 
-## Product promise
+## The product in one loop
 
-- Immediate entry through a public play link.
-- A readable command map with pinned access to forces and construction.
-- Depth through constrained choices rather than control complexity.
-- Clear feedback about accepted orders, unavailable actions and objectives.
+| Step | Player experience | Underlying depth |
+| --- | --- | --- |
+| Orient | Pick a scenario and difficulty; see the objective. | Fifteen missions vary goals, weather, force focus and duration. |
+| Deploy | Open Forces & Build, choose a role and place a formation. | Cost, terrain, connected territory and deployment delay constrain placement. |
+| Act | Select a friendly unit; click a destination or eligible enemy. | Detection, target compatibility, supply, ammunition and cooldown determine execution. |
+| Respond | Inspect a map alert and jump to the incident. | Local defence handles nearby threats; the player decides where to reinforce. |
+| Recover and learn | Wait for slow upkeep or purchase faster service; review the mission report. | Time and credits remain competing resources; historical damage survives repairs. |
 
-## Scope and boundaries
+The roster contains **37 configured types**, including 29 available in the player’s deployment tray; bridges are created through crossing engineering. See the [platform catalogue](../specs/WEAPONS.md) and [scenario catalogue](../specs/SCENARIOS.md) for the exact inventory.
 
-The player commands India against a computer opponent in fictional conventional scenarios. Geography provides context; installations, deployment locations, inventories and capabilities are fictional. Cities provide context and civilian-protection considerations, not selectable combat targets. Disputed boundaries are depicted neutrally and approximately.
+## What I focused on
 
-The first playable experience requires no paid map service, account or live conflict feed. Full operational fidelity, real-world targeting data, nuclear weapons and verified military inventories are outside scope.
+- **Product definition:** turning an ambitious realism goal into a playable loop and clear acceptance criteria.
+- **User-centered iteration:** connecting friction in the experience to specific controls, automation and feedback.
+- **System behavior:** deciding what the opponent can know, what units can do automatically and what should stay under player control.
+- **Systems judgment:** balancing immersion, fairness, performance, save compatibility and maintainable configuration.
 
-## Portfolio evidence
+The [product decisions](PRODUCT-DECISIONS.md) explain the trade-offs I made. [AI and systems](AI-AND-SYSTEMS.md) covers the opponent, information boundaries and evaluation approach.
 
-The project includes a public game, five recorded development stages and an engineering verification record. The documentation explains the rationale, accepted trade-offs and remaining validation work. No interviews, market sizing, business returns or retention results are invented.
+## Boundaries and next evidence
 
-**Next question:** can an unfamiliar player deploy a unit and issue a meaningful order in two minutes without coaching? See the [measurement plan](MEASUREMENT.md).
+I chose recognizable geography, fictional military sites and normalized capabilities. Cities are contextual civilian centers, not selectable targets. Real inventories, live intelligence, operational targeting and nuclear weapons are outside scope. The optional relief view is a stylized 3D presentation, with a playable 2D fallback.
+
+The repository records implementation and release checks. I have not yet measured enjoyment, retention or usability improvement. My next question is whether unfamiliar players can complete the core loop within two minutes without coaching; the [measurement plan](MEASUREMENT.md) makes that test concrete.

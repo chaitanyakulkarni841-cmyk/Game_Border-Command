@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "status": "design-roster-not-source-export",
-  "statistics": "fictional gameplay only; numerical values pending source import",
+  "status": "historical-design-roster-see-weapons-json-for-complete-runtime-export",
+  "statistics": "Fictional gameplay only. Complete current values and availability are in weapons.json.",
   "entries": [
     {
       "side": "India",

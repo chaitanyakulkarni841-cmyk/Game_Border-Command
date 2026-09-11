@@ -1,0 +1,41 @@
+{
+  "note": "Source development stages; these original source commits are provenance, not claimed GitHub release tags.",
+  "stages": [
+    {
+      "stage": 1,
+      "sourceCommit": "e2bb17e53a2dd215fd2b895408a61aef76d9c972",
+      "summary": "Build Border Command strategy game"
+    },
+    {
+      "stage": 2,
+      "sourceCommit": "247e1451a690cd415b07df6beba657d9b4d173c7",
+      "summary": "Expand Border Command with combined arms, fifteen operations and terrain graphics"
+    },
+    {
+      "stage": 3,
+      "sourceCommit": "73cfb6036a6e6b09773216de75343057fcfc8570",
+      "summary": "Add direct-click attacks, immersive theatre map and detailed unit graphics"
+    },
+    {
+      "stage": 4,
+      "sourceCommit": "cddb11163b195052b615d731412cc181b13680e7",
+      "summary": "Add 3D theatre camera, connected fronts, drones and diplomacy"
+    },
+    {
+      "stage": 5,
+      "sourceCommit": "fa4b02c658bfe3ff335a23248e849fc85d3913cf",
+      "summary": "Expand land area and simplify command controls with pinned recruitment"
+    },
+    {
+      "stage": 6,
+      "sourceCommit": "83ea15d69ce1b9c33e5afc407c228582c09941df",
+      "summary": "Reduce world area, extend ranges, add automatic local defence and grouped attack navigation"
+    },
+    {
+      "stage": 7,
+      "sourceCommit": "689409166e478c6305636ab36b358751eb445f20",
+      "status": "Source published; 80 automated checks, type check and production build passed",
+      "summary": "Add scoped coverage increases, passive maintenance, attackable fictional infrastructure, mission impact reports and smooth presentation"
+    }
+  ]
+}

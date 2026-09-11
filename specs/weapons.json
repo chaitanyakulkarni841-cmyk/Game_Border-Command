@@ -1,0 +1,2426 @@
+{
+  "schemaVersion": 1,
+  "title": "Border Command fictional unit catalog",
+  "generatedDate": "2026-09-11",
+  "disclaimer": "Every numeric specification is a fictional game-balance value copied from the source code. Real-world-inspired names do not imply real weapon performance, capability or current service inventory.",
+  "counts": {
+    "total": 37,
+    "playerDeployable": 29,
+    "opposingAI": 19,
+    "shared": 11,
+    "opposingOnly": 7,
+    "engineeringOnly": 1,
+    "atlasCrops": 33,
+    "glyphs": 37
+  },
+  "sourceFiles": [
+    "lib/game/catalog.ts",
+    "lib/game/unit-art.ts",
+    "lib/game/engine.ts",
+    "lib/game/world.ts",
+    "lib/game/maintenance.ts",
+    "app/game.tsx"
+  ],
+  "sourceHashes": {
+    "lib/game/catalog.ts": "79e3501d09e3b7dd1ef7a3b9beb8410f22591370ee62c70663d809083d6903f5",
+    "lib/game/unit-art.ts": "d2174e3e308600d1c9e6255504baa243e27040a8fd3757b537a0599b7dc7db4d",
+    "lib/game/engine.ts": "d1a0308c638bed7de3400c818179e352b5a945a552885fb675db9128a1612be5",
+    "lib/game/world.ts": "79fc25db6b68dd040dc23324d6666ce5dc30b30f2e838a297b9375deeedcd0b8",
+    "lib/game/maintenance.ts": "f1f074092a54ee6d358c06264e6d36e607f1b6c802c6353d0ab3220c68f26cef",
+    "app/game.tsx": "2949e9a3559642a3ec372ee4ec6def751718452ae47ddb4d39425688ad2cdd1d"
+  },
+  "availabilityMeaning": "Player means included in ROSTER and accepted by deploy(). Opposing AI means observed in explicit initial spawns or reinforcement choice arrays. Scenario infrastructure is seeded for both sides; bridges are built through crossing engineering, not the deployment tray. Low-level add() is not a faction-enforcement API, so these describe current game usage, not hard ownership constraints.",
+  "unitsOfMeasure": {
+    "cost": "fictional credits",
+    "hp": "health points per formation",
+    "ammo": "formation ammunition pool",
+    "range": "raw fictional catalog balance value; non-missile range is multiplied by ENGAGEMENT_RANGE_MULTIPLIER/WORLD_LINEAR_SCALE, while missile range is multiplied only by ENGAGEMENT_RANGE_MULTIPLIER; scoped type multipliers from maintenance.ts apply to the resolved range",
+    "vision": "raw fictional detection value; converted by ENGAGEMENT_RANGE_MULTIPLIER/WORLD_LINEAR_SCALE, scoped type coverage multiplier and weather",
+    "speed": "raw catalog movement value; converted by MOVEMENT_MULTIPLIER/WORLD_LINEAR_SCALE per simulation second",
+    "damage": "base game damage, before game modifiers",
+    "cooldown": "simulation seconds",
+    "members": "nominal members per formation at full health",
+    "income": "base fictional credits per simulation second",
+    "slots": "catalog capacity field; retained exactly"
+  },
+  "sourceRoot": "game/",
+  "worldScale": {
+    "WORLD_LINEAR_SCALE": 3.2429560081953777,
+    "MOVEMENT_MULTIPLIER": 3,
+    "ENGAGEMENT_RANGE_MULTIPLIER": 1.25
+  },
+  "atlasInfo": {
+    "unit-atlas.png": {
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2091721,
+      "sha256": "a2bdbbc9e935e1b1604b10a8522c3d99ad84fe68b6949ad30567508cc4745f6d"
+    },
+    "new-units.png": {
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2003154,
+      "sha256": "ebc70e09959610a113aaeb6b71cf1d366a6e5b860885710979c281f8f25c9d69"
+    }
+  },
+  "units": [
+    {
+      "id": "s400",
+      "branch": "army",
+      "domain": "land",
+      "cost": 280,
+      "hp": 150,
+      "ammo": 12,
+      "range": 130,
+      "vision": 155,
+      "speed": 4,
+      "damage": 38,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 2,
+      "structure": false,
+      "targets": [
+        "air",
+        "land"
+      ],
+      "members": 4,
+      "formation": "launchers",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "army",
+      "name": "S-400",
+      "role": "Sector air & vehicle defence",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 3.700328,
+        "effectiveRangeMapUnitsWithRadar": 200.434418,
+        "detectionMapUnitsInClearWeather": 238.979498
+      },
+      "icon": {
+        "glyphName": "ShieldCheck",
+        "glyph": "../images/icons/glyph/s400.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1032,
+          "y": 264,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 180,
+          "wrapper": "../images/icons/atlas/s400.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "hq9"
+          ]
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 4 relative to v0.6; the base fields remain raw catalog values.",
+        "Fictional land engagement is restricted to armed, non-structure ground units. This is a gameplay capability, not a claim about real equipment.",
+        "Without an operational same-team radar within 230 map units, effective range is multiplied by 0.78."
+      ]
+    },
+    {
+      "id": "akash",
+      "branch": "army",
+      "domain": "land",
+      "cost": 150,
+      "hp": 110,
+      "ammo": 10,
+      "range": 78,
+      "vision": 105,
+      "speed": 5,
+      "damage": 28,
+      "cooldown": 4,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air",
+        "land"
+      ],
+      "members": 4,
+      "formation": "launchers",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "army",
+      "name": "Akash",
+      "role": "Mobile air & vehicle defence",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 4.62541,
+        "effectiveRangeMapUnitsWithRadar": 120.260651,
+        "detectionMapUnitsInClearWeather": 161.889338
+      },
+      "icon": {
+        "glyphName": "Shield",
+        "glyph": "../images/icons/glyph/akash.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1288,
+          "y": 264,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 180,
+          "wrapper": "../images/icons/atlas/akash.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 4 relative to v0.6; the base fields remain raw catalog values.",
+        "Fictional land engagement is restricted to armed, non-structure ground units. This is a gameplay capability, not a claim about real equipment."
+      ]
+    },
+    {
+      "id": "rafale",
+      "branch": "air",
+      "domain": "air",
+      "cost": 230,
+      "hp": 110,
+      "ammo": 8,
+      "range": 46,
+      "vision": 115,
+      "speed": 18,
+      "damage": 30,
+      "cooldown": 4,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land",
+        "air",
+        "sea"
+      ],
+      "members": 4,
+      "formation": "aircraft",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "Rafale",
+      "role": "Multirole squadron",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 16.651475,
+        "effectiveRangeMapUnitsWithRadar": 88.653685,
+        "detectionMapUnitsInClearWeather": 221.634212
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/rafale.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 8,
+          "y": 8,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/rafale.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 5 relative to v0.6; the base fields remain raw catalog values."
+      ]
+    },
+    {
+      "id": "su30",
+      "branch": "air",
+      "domain": "air",
+      "cost": 270,
+      "hp": 150,
+      "ammo": 10,
+      "range": 50,
+      "vision": 110,
+      "speed": 15,
+      "damage": 33,
+      "cooldown": 5,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land",
+        "air",
+        "sea"
+      ],
+      "members": 4,
+      "formation": "aircraft",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "Su-30MKI",
+      "role": "Heavy fighter squadron",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 13.876229,
+        "effectiveRangeMapUnitsWithRadar": 96.362701,
+        "detectionMapUnitsInClearWeather": 211.997942
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/su30.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 264,
+          "y": 8,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/su30.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 5 relative to v0.6; the base fields remain raw catalog values."
+      ]
+    },
+    {
+      "id": "tejas",
+      "branch": "air",
+      "domain": "air",
+      "cost": 170,
+      "hp": 85,
+      "ammo": 6,
+      "range": 40,
+      "vision": 100,
+      "speed": 21,
+      "damage": 24,
+      "cooldown": 3.5,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air",
+        "land"
+      ],
+      "members": 4,
+      "formation": "aircraft",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "Tejas",
+      "role": "Light fighter squadron",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 19.426721,
+        "effectiveRangeMapUnitsWithRadar": 77.090161,
+        "detectionMapUnitsInClearWeather": 192.725402
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/tejas.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 520,
+          "y": 8,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/tejas.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "jf17"
+          ]
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 5 relative to v0.6; the base fields remain raw catalog values."
+      ]
+    },
+    {
+      "id": "drone",
+      "branch": "air",
+      "domain": "air",
+      "cost": 90,
+      "hp": 55,
+      "ammo": 0,
+      "range": 0,
+      "vision": 195,
+      "speed": 12,
+      "damage": 0,
+      "cooldown": 0,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [],
+      "members": 2,
+      "formation": "drones",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "Scout UAV",
+      "role": "Unarmed reconnaissance",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 11.100983,
+        "effectiveRangeMapUnitsWithRadar": 0,
+        "detectionMapUnitsInClearWeather": 75.162907
+      },
+      "icon": {
+        "glyphName": "Eye",
+        "glyph": "../images/icons/glyph/drone.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 776,
+          "y": 8,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/drone.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range."
+      ]
+    },
+    {
+      "id": "armeddrone",
+      "branch": "air",
+      "domain": "air",
+      "cost": 165,
+      "hp": 65,
+      "ammo": 4,
+      "range": 52,
+      "vision": 155,
+      "speed": 13,
+      "damage": 27,
+      "cooldown": 7,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land",
+        "sea"
+      ],
+      "members": 3,
+      "formation": "drones",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "Strike UAV wing",
+      "role": "Light ground & naval attack",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": true,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 12.026065,
+        "effectiveRangeMapUnitsWithRadar": 20.043442,
+        "detectionMapUnitsInClearWeather": 59.744875
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/armeddrone.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/new-units.png",
+          "filename": "new-units.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 0,
+          "y": 0,
+          "width": 550,
+          "height": 512,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/armeddrone.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "interceptordrone",
+      "branch": "air",
+      "domain": "air",
+      "cost": 125,
+      "hp": 70,
+      "ammo": 12,
+      "range": 48,
+      "vision": 125,
+      "speed": 19,
+      "damage": 24,
+      "cooldown": 3,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air"
+      ],
+      "members": 8,
+      "formation": "drones",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "Interceptor drone swarm",
+      "role": "Drone interception only",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": true,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 17.576557,
+        "effectiveRangeMapUnitsWithRadar": 18.501639,
+        "detectionMapUnitsInClearWeather": 48.18135
+      },
+      "icon": {
+        "glyphName": "Radar",
+        "glyph": "../images/icons/glyph/interceptordrone.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/new-units.png",
+          "filename": "new-units.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 512,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/interceptordrone.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Despite the air target-domain flag, canHit restricts this unit to drone, armeddrone and interceptordrone targets."
+      ]
+    },
+    {
+      "id": "counterdrone",
+      "branch": "army",
+      "domain": "land",
+      "cost": 160,
+      "hp": 130,
+      "ammo": 18,
+      "range": 75,
+      "vision": 135,
+      "speed": 7,
+      "damage": 20,
+      "cooldown": 3,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air"
+      ],
+      "members": 2,
+      "formation": "vehicles",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "army",
+      "name": "Counter-drone vehicle",
+      "role": "Drone disruption & point defence",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 6.475574,
+        "effectiveRangeMapUnitsWithRadar": 28.90881,
+        "detectionMapUnitsInClearWeather": 52.035859
+      },
+      "icon": {
+        "glyphName": "ShieldCheck",
+        "glyph": "../images/icons/glyph/counterdrone.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/new-units.png",
+          "filename": "new-units.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1024,
+          "y": 0,
+          "width": 512,
+          "height": 512,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/counterdrone.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Despite the air target-domain flag, canHit restricts this unit to drone, armeddrone and interceptordrone targets."
+      ]
+    },
+    {
+      "id": "bridgelayer",
+      "branch": "army",
+      "domain": "land",
+      "cost": 180,
+      "hp": 160,
+      "ammo": 0,
+      "range": 0,
+      "vision": 85,
+      "speed": 7,
+      "damage": 0,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [],
+      "members": 3,
+      "formation": "vehicles",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "army",
+      "name": "River-crossing engineers",
+      "role": "Construct pontoon crossings",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 6.475574,
+        "effectiveRangeMapUnitsWithRadar": 0,
+        "detectionMapUnitsInClearWeather": 32.763318
+      },
+      "icon": {
+        "glyphName": "Wrench",
+        "glyph": "../images/icons/glyph/bridgelayer.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/new-units.png",
+          "filename": "new-units.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 0,
+          "y": 512,
+          "width": 512,
+          "height": 512,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/bridgelayer.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range."
+      ]
+    },
+    {
+      "id": "radar",
+      "branch": "army",
+      "domain": "land",
+      "cost": 120,
+      "hp": 90,
+      "ammo": 0,
+      "range": 0,
+      "vision": 195,
+      "speed": 4,
+      "damage": 0,
+      "cooldown": 0,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [],
+      "members": 1,
+      "formation": "unit",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "army",
+      "name": "Radar station",
+      "role": "Detection & identification",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 3.700328,
+        "effectiveRangeMapUnitsWithRadar": 0,
+        "detectionMapUnitsInClearWeather": 75.162907
+      },
+      "icon": {
+        "glyphName": "Radar",
+        "glyph": "../images/icons/glyph/radar.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 264,
+          "y": 520,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 180,
+          "wrapper": "../images/icons/atlas/radar.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range."
+      ]
+    },
+    {
+      "id": "logistics",
+      "branch": "army",
+      "domain": "land",
+      "cost": 100,
+      "hp": 110,
+      "ammo": 0,
+      "range": 110,
+      "vision": 65,
+      "speed": 8,
+      "damage": 0,
+      "cooldown": 0,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [],
+      "members": 6,
+      "formation": "trucks",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "army",
+      "name": "Supply column",
+      "role": "Mobile resupply support",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 7.400655,
+        "effectiveRangeMapUnitsWithRadar": 42.399588,
+        "detectionMapUnitsInClearWeather": 25.054302
+      },
+      "icon": {
+        "glyphName": "Truck",
+        "glyph": "../images/icons/glyph/logistics.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 520,
+          "y": 520,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 180,
+          "wrapper": "../images/icons/atlas/logistics.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range."
+      ]
+    },
+    {
+      "id": "infantry",
+      "branch": "army",
+      "domain": "land",
+      "cost": 110,
+      "hp": 180,
+      "ammo": 24,
+      "range": 38,
+      "vision": 90,
+      "speed": 7,
+      "damage": 20,
+      "cooldown": 3.5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land"
+      ],
+      "members": 80,
+      "formation": "troops",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "army",
+      "name": "Infantry company",
+      "role": "Capture & hold sectors",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": true,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 6.475574,
+        "effectiveRangeMapUnitsWithRadar": 14.647131,
+        "detectionMapUnitsInClearWeather": 34.690572
+      },
+      "icon": {
+        "glyphName": "UsersRound",
+        "glyph": "../images/icons/glyph/infantry.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 776,
+          "y": 520,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/infantry.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "t90",
+      "branch": "army",
+      "domain": "land",
+      "cost": 250,
+      "hp": 260,
+      "ammo": 16,
+      "range": 58,
+      "vision": 100,
+      "speed": 9,
+      "damage": 40,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land"
+      ],
+      "members": 6,
+      "formation": "tanks",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "army",
+      "name": "T-90 formation",
+      "role": "Mobile heavy armour",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 8.325737,
+        "effectiveRangeMapUnitsWithRadar": 22.356147,
+        "detectionMapUnitsInClearWeather": 38.54508
+      },
+      "icon": {
+        "glyphName": "CarFront",
+        "glyph": "../images/icons/glyph/t90.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 8,
+          "y": 264,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/t90.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "arjun",
+      "branch": "army",
+      "domain": "land",
+      "cost": 290,
+      "hp": 320,
+      "ammo": 14,
+      "range": 62,
+      "vision": 90,
+      "speed": 6,
+      "damage": 45,
+      "cooldown": 6,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land"
+      ],
+      "members": 6,
+      "formation": "tanks",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "army",
+      "name": "Arjun formation",
+      "role": "Heavy assault armour",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 5.550492,
+        "effectiveRangeMapUnitsWithRadar": 23.89795,
+        "detectionMapUnitsInClearWeather": 34.690572
+      },
+      "icon": {
+        "glyphName": "CarFront",
+        "glyph": "../images/icons/glyph/arjun.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 264,
+          "y": 264,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/arjun.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "bmp",
+      "branch": "army",
+      "domain": "land",
+      "cost": 180,
+      "hp": 190,
+      "ammo": 18,
+      "range": 43,
+      "vision": 110,
+      "speed": 11,
+      "damage": 26,
+      "cooldown": 4,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land"
+      ],
+      "members": 8,
+      "formation": "vehicles",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "army",
+      "name": "Mechanized infantry",
+      "role": "Fast sector occupation",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 10.175901,
+        "effectiveRangeMapUnitsWithRadar": 16.574385,
+        "detectionMapUnitsInClearWeather": 42.399588
+      },
+      "icon": {
+        "glyphName": "Truck",
+        "glyph": "../images/icons/glyph/bmp.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 520,
+          "y": 264,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/bmp.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "artillery",
+      "branch": "army",
+      "domain": "land",
+      "cost": 240,
+      "hp": 120,
+      "ammo": 10,
+      "range": 125,
+      "vision": 70,
+      "speed": 5,
+      "damage": 48,
+      "cooldown": 10,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land"
+      ],
+      "members": 4,
+      "formation": "guns",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "army",
+      "name": "K9-inspired battery",
+      "role": "Long-range ground support",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": true,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 4.62541,
+        "effectiveRangeMapUnitsWithRadar": 48.18135,
+        "detectionMapUnitsInClearWeather": 26.981556
+      },
+      "icon": {
+        "glyphName": "Crosshair",
+        "glyph": "../images/icons/glyph/artillery.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 776,
+          "y": 264,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/artillery.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "engineer",
+      "branch": "army",
+      "domain": "land",
+      "cost": 95,
+      "hp": 100,
+      "ammo": 6,
+      "range": 28,
+      "vision": 85,
+      "speed": 8,
+      "damage": 10,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land"
+      ],
+      "members": 24,
+      "formation": "engineers",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "army",
+      "name": "Combat engineers",
+      "role": "Establish forward bases",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 7.400655,
+        "effectiveRangeMapUnitsWithRadar": 10.792623,
+        "detectionMapUnitsInClearWeather": 32.763318
+      },
+      "icon": {
+        "glyphName": "Wrench",
+        "glyph": "../images/icons/glyph/engineer.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1032,
+          "y": 520,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 180,
+          "wrapper": "../images/icons/atlas/engineer.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "brahmos",
+      "branch": "army",
+      "domain": "land",
+      "cost": 440,
+      "hp": 140,
+      "ammo": 3,
+      "range": 410,
+      "vision": 85,
+      "speed": 5,
+      "damage": 190,
+      "cooldown": 24,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land",
+        "sea"
+      ],
+      "members": 3,
+      "formation": "launchers",
+      "income": 0,
+      "missile": true,
+      "capture": false,
+      "art": "army",
+      "name": "BrahMos-inspired battery",
+      "role": "Player-controlled cruise strike",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 4.62541,
+        "effectiveRangeMapUnitsWithRadar": 512.5,
+        "detectionMapUnitsInClearWeather": 32.763318
+      },
+      "icon": {
+        "glyphName": "Rocket",
+        "glyph": "../images/icons/glyph/brahmos.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 8,
+          "y": 520,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 180,
+          "wrapper": "../images/icons/atlas/brahmos.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Manual cruise launch: raw range is multiplied by ENGAGEMENT_RANGE_MULTIPLIER; unlike other weapons it is not divided by WORLD_LINEAR_SCALE."
+      ]
+    },
+    {
+      "id": "destroyer",
+      "branch": "navy",
+      "domain": "sea",
+      "cost": 380,
+      "hp": 390,
+      "ammo": 22,
+      "range": 100,
+      "vision": 160,
+      "speed": 9,
+      "damage": 39,
+      "cooldown": 5,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "sea",
+        "air"
+      ],
+      "members": 1,
+      "formation": "ship",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "navy",
+      "name": "Visakhapatnam-class",
+      "role": "Destroyer group",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 8.325737,
+        "effectiveRangeMapUnitsWithRadar": 38.54508,
+        "detectionMapUnitsInClearWeather": 61.672129
+      },
+      "icon": {
+        "glyphName": "Ship",
+        "glyph": "../images/icons/glyph/destroyer.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 8,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/destroyer.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "frigate",
+      "branch": "navy",
+      "domain": "sea",
+      "cost": 270,
+      "hp": 270,
+      "ammo": 18,
+      "range": 85,
+      "vision": 145,
+      "speed": 11,
+      "damage": 28,
+      "cooldown": 4,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "sea",
+        "air"
+      ],
+      "members": 1,
+      "formation": "ship",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "navy",
+      "name": "Shivalik-class",
+      "role": "Frigate escort",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 10.175901,
+        "effectiveRangeMapUnitsWithRadar": 32.763318,
+        "detectionMapUnitsInClearWeather": 55.890367
+      },
+      "icon": {
+        "glyphName": "Ship",
+        "glyph": "../images/icons/glyph/frigate.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 264,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/frigate.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "type054"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "submarine",
+      "branch": "navy",
+      "domain": "sea",
+      "cost": 310,
+      "hp": 180,
+      "ammo": 8,
+      "range": 72,
+      "vision": 115,
+      "speed": 7,
+      "damage": 65,
+      "cooldown": 9,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "sea"
+      ],
+      "members": 1,
+      "formation": "ship",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "navy",
+      "name": "Kalvari-class",
+      "role": "Low-visibility sea control",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 6.475574,
+        "effectiveRangeMapUnitsWithRadar": 27.752458,
+        "detectionMapUnitsInClearWeather": 44.326842
+      },
+      "icon": {
+        "glyphName": "Navigation",
+        "glyph": "../images/icons/glyph/submarine.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 520,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/submarine.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "agosta"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "carrier",
+      "branch": "navy",
+      "domain": "sea",
+      "cost": 680,
+      "hp": 650,
+      "ammo": 20,
+      "range": 75,
+      "vision": 160,
+      "speed": 6,
+      "damage": 22,
+      "cooldown": 5,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air"
+      ],
+      "members": 1,
+      "formation": "ship",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "navy",
+      "name": "Vikrant-inspired carrier",
+      "role": "Mobile aircraft service",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 5.550492,
+        "effectiveRangeMapUnitsWithRadar": 28.90881,
+        "detectionMapUnitsInClearWeather": 61.672129
+      },
+      "icon": {
+        "glyphName": "Ship",
+        "glyph": "../images/icons/glyph/carrier.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 776,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/carrier.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "supplyship",
+      "branch": "navy",
+      "domain": "sea",
+      "cost": 180,
+      "hp": 210,
+      "ammo": 0,
+      "range": 150,
+      "vision": 80,
+      "speed": 9,
+      "damage": 0,
+      "cooldown": 5,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": false,
+      "targets": [],
+      "members": 1,
+      "formation": "ship",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "navy",
+      "name": "Fleet replenishment ship",
+      "role": "Naval repairs & resupply",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 8.325737,
+        "effectiveRangeMapUnitsWithRadar": 57.817621,
+        "detectionMapUnitsInClearWeather": 30.836064
+      },
+      "icon": {
+        "glyphName": "Anchor",
+        "glyph": "../images/icons/glyph/supplyship.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1032,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/supplyship.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range."
+      ]
+    },
+    {
+      "id": "base",
+      "branch": "build",
+      "domain": "land",
+      "cost": 450,
+      "hp": 500,
+      "ammo": 0,
+      "range": 0,
+      "vision": 120,
+      "speed": 2,
+      "damage": 0,
+      "cooldown": 0,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": true,
+      "targets": [],
+      "members": 1,
+      "formation": "installation",
+      "income": 0.65,
+      "missile": false,
+      "capture": false,
+      "art": "build",
+      "name": "Forward command base",
+      "role": "Income & deployment hub",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 1.850164,
+        "effectiveRangeMapUnitsWithRadar": 0,
+        "detectionMapUnitsInClearWeather": 46.254096
+      },
+      "icon": {
+        "glyphName": "TowerControl",
+        "glyph": "../images/icons/glyph/base.svg",
+        "atlas": null
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range.",
+        "unitArt returns null; the 2D map has a vector fallback and the UI uses the listed Lucide glyph. The current 3D renderer falls back to airfield atlas art."
+      ]
+    },
+    {
+      "id": "airfield",
+      "branch": "build",
+      "domain": "land",
+      "cost": 380,
+      "hp": 370,
+      "ammo": 0,
+      "range": 0,
+      "vision": 110,
+      "speed": 0,
+      "damage": 0,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": true,
+      "targets": [],
+      "members": 1,
+      "formation": "installation",
+      "income": 0.25,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "Field airfield",
+      "role": "Squadron launch & rearm",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 0,
+        "effectiveRangeMapUnitsWithRadar": 0,
+        "detectionMapUnitsInClearWeather": 42.399588
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/airfield.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1288,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/airfield.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range."
+      ]
+    },
+    {
+      "id": "depot",
+      "branch": "build",
+      "domain": "land",
+      "cost": 180,
+      "hp": 240,
+      "ammo": 0,
+      "range": 190,
+      "vision": 75,
+      "speed": 0,
+      "damage": 0,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": true,
+      "targets": [],
+      "members": 1,
+      "formation": "installation",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "build",
+      "name": "Supply depot",
+      "role": "Extends resupply coverage",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": false,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": false,
+        "teams": [
+          "india"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 0,
+        "effectiveRangeMapUnitsWithRadar": 73.235653,
+        "detectionMapUnitsInClearWeather": 28.90881
+      },
+      "icon": {
+        "glyphName": "Package",
+        "glyph": "../images/icons/glyph/depot.svg",
+        "atlas": null
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range.",
+        "unitArt returns null; the 2D map has a vector fallback and the UI uses the listed Lucide glyph. The current 3D renderer falls back to airfield atlas art."
+      ]
+    },
+    {
+      "id": "bridge",
+      "branch": "build",
+      "domain": "land",
+      "cost": 120,
+      "hp": 220,
+      "ammo": 0,
+      "range": 0,
+      "vision": 0,
+      "speed": 0,
+      "damage": 0,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": true,
+      "targets": [],
+      "members": 1,
+      "formation": "installation",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "build",
+      "name": "Logistics bridge",
+      "role": "Fictional military river crossing",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": true,
+        "builtThroughEngineering": true,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 0,
+        "effectiveRangeMapUnitsWithRadar": 0,
+        "detectionMapUnitsInClearWeather": 0
+      },
+      "icon": {
+        "glyphName": "Route",
+        "glyph": "../images/icons/glyph/bridge.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/new-units.png",
+          "filename": "new-units.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 512,
+          "y": 512,
+          "width": 512,
+          "height": 512,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/bridge.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Not available in the deployment tray. Existing open crossings receive assets; engineers build or rebuild bridges. Destruction closes the crossing.",
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range."
+      ]
+    },
+    {
+      "id": "industry",
+      "branch": "build",
+      "domain": "land",
+      "cost": 320,
+      "hp": 260,
+      "ammo": 0,
+      "range": 0,
+      "vision": 65,
+      "speed": 0,
+      "damage": 0,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": true,
+      "targets": [],
+      "members": 1,
+      "formation": "installation",
+      "income": 1.5,
+      "missile": false,
+      "capture": false,
+      "art": "build",
+      "name": "Resource works",
+      "role": "+1.5 credits / second",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": true,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 0,
+        "effectiveRangeMapUnitsWithRadar": 0,
+        "detectionMapUnitsInClearWeather": 25.054302
+      },
+      "icon": {
+        "glyphName": "Factory",
+        "glyph": "../images/icons/glyph/industry.svg",
+        "atlas": null
+      },
+      "notes": [
+        "Scenario military works are present for both sides in sectors; these starting works generate no income and do not satisfy economy construction goals. Player-built works retain their listed income.",
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range.",
+        "The 2D fallback and 3D renderer draw a custom factory silhouette; the UI uses the listed Lucide glyph."
+      ]
+    },
+    {
+      "id": "harbor",
+      "branch": "build",
+      "domain": "sea",
+      "cost": 350,
+      "hp": 480,
+      "ammo": 0,
+      "range": 180,
+      "vision": 130,
+      "speed": 0,
+      "damage": 0,
+      "cooldown": 5,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": true,
+      "targets": [],
+      "members": 1,
+      "formation": "ship",
+      "income": 0.4,
+      "missile": false,
+      "capture": false,
+      "art": "navy",
+      "name": "Fleet anchorage",
+      "role": "Naval deployment & supply",
+      "availability": {
+        "playerDeployable": true,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "india",
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 0,
+        "effectiveRangeMapUnitsWithRadar": 69.381145,
+        "detectionMapUnitsInClearWeather": 50.108604
+      },
+      "icon": {
+        "glyphName": "Anchor",
+        "glyph": "../images/icons/glyph/harbor.svg",
+        "atlas": null
+      },
+      "notes": [
+        "Non-damaging support or infrastructure entry; a nonzero range is not an attack range.",
+        "unitArt returns null; the 2D map has a vector fallback and the UI uses the listed Lucide glyph. The current 3D renderer falls back to airfield atlas art."
+      ]
+    },
+    {
+      "id": "jf17",
+      "branch": "air",
+      "domain": "air",
+      "cost": 160,
+      "hp": 90,
+      "ammo": 7,
+      "range": 42,
+      "vision": 110,
+      "speed": 16,
+      "damage": 25,
+      "cooldown": 5,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air",
+        "land",
+        "sea"
+      ],
+      "members": 4,
+      "formation": "aircraft",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "JF-17",
+      "role": "Multirole squadron",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": true,
+        "teams": [
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 14.801311,
+        "effectiveRangeMapUnitsWithRadar": 80.944669,
+        "detectionMapUnitsInClearWeather": 211.997942
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/jf17.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 520,
+          "y": 8,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/jf17.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "tejas"
+          ]
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 5 relative to v0.6; the base fields remain raw catalog values."
+      ]
+    },
+    {
+      "id": "f16",
+      "branch": "air",
+      "domain": "air",
+      "cost": 220,
+      "hp": 110,
+      "ammo": 8,
+      "range": 46,
+      "vision": 115,
+      "speed": 18,
+      "damage": 29,
+      "cooldown": 4,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air",
+        "land",
+        "sea"
+      ],
+      "members": 4,
+      "formation": "aircraft",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "F-16",
+      "role": "Multirole squadron",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": true,
+        "teams": [
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 16.651475,
+        "effectiveRangeMapUnitsWithRadar": 88.653685,
+        "detectionMapUnitsInClearWeather": 221.634212
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/f16.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1032,
+          "y": 8,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/f16.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 5 relative to v0.6; the base fields remain raw catalog values."
+      ]
+    },
+    {
+      "id": "j10",
+      "branch": "air",
+      "domain": "air",
+      "cost": 230,
+      "hp": 115,
+      "ammo": 8,
+      "range": 48,
+      "vision": 120,
+      "speed": 19,
+      "damage": 30,
+      "cooldown": 4,
+      "air": true,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "air",
+        "land",
+        "sea"
+      ],
+      "members": 4,
+      "formation": "aircraft",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "air",
+      "name": "J-10C",
+      "role": "Multirole squadron",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": false,
+        "opposingReinforcement": true,
+        "teams": [
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 17.576557,
+        "effectiveRangeMapUnitsWithRadar": 92.508193,
+        "detectionMapUnitsInClearWeather": 231.270482
+      },
+      "icon": {
+        "glyphName": "Plane",
+        "glyph": "../images/icons/glyph/j10.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1288,
+          "y": 8,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/j10.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": [
+        "Detection and engagement radii are multiplied by 5 relative to v0.6; the base fields remain raw catalog values."
+      ]
+    },
+    {
+      "id": "hq9",
+      "branch": "army",
+      "domain": "land",
+      "cost": 260,
+      "hp": 140,
+      "ammo": 12,
+      "range": 115,
+      "vision": 145,
+      "speed": 4,
+      "damage": 32,
+      "cooldown": 6,
+      "air": false,
+      "sea": false,
+      "slots": 2,
+      "structure": false,
+      "targets": [
+        "air"
+      ],
+      "members": 4,
+      "formation": "launchers",
+      "income": 0,
+      "missile": false,
+      "capture": false,
+      "art": "army",
+      "name": "HQ-9/P",
+      "role": "Long-range air defence",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": false,
+        "teams": [
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 3.700328,
+        "effectiveRangeMapUnitsWithRadar": 44.326842,
+        "detectionMapUnitsInClearWeather": 55.890367
+      },
+      "icon": {
+        "glyphName": "ShieldCheck",
+        "glyph": "../images/icons/glyph/hq9.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1032,
+          "y": 264,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 180,
+          "wrapper": "../images/icons/atlas/hq9.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "s400"
+          ]
+        }
+      },
+      "notes": [
+        "Without an operational same-team radar within 230 map units, effective range is multiplied by 0.78."
+      ]
+    },
+    {
+      "id": "alkhalid",
+      "branch": "army",
+      "domain": "land",
+      "cost": 240,
+      "hp": 250,
+      "ammo": 16,
+      "range": 55,
+      "vision": 95,
+      "speed": 9,
+      "damage": 37,
+      "cooldown": 5,
+      "air": false,
+      "sea": false,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "land"
+      ],
+      "members": 6,
+      "formation": "tanks",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "army",
+      "name": "Al-Khalid formation",
+      "role": "Armoured formation",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": true,
+        "teams": [
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 8.325737,
+        "effectiveRangeMapUnitsWithRadar": 21.199794,
+        "detectionMapUnitsInClearWeather": 36.617826
+      },
+      "icon": {
+        "glyphName": "CarFront",
+        "glyph": "../images/icons/glyph/alkhalid.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 1288,
+          "y": 520,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/alkhalid.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": []
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "type054",
+      "branch": "navy",
+      "domain": "sea",
+      "cost": 260,
+      "hp": 280,
+      "ammo": 18,
+      "range": 90,
+      "vision": 145,
+      "speed": 10,
+      "damage": 32,
+      "cooldown": 5,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "sea",
+        "air"
+      ],
+      "members": 1,
+      "formation": "ship",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "navy",
+      "name": "Tughril-class",
+      "role": "Frigate formation",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": true,
+        "teams": [
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 9.250819,
+        "effectiveRangeMapUnitsWithRadar": 34.690572,
+        "detectionMapUnitsInClearWeather": 55.890367
+      },
+      "icon": {
+        "glyphName": "Ship",
+        "glyph": "../images/icons/glyph/type054.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 264,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/type054.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "frigate"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "id": "agosta",
+      "branch": "navy",
+      "domain": "sea",
+      "cost": 280,
+      "hp": 175,
+      "ammo": 8,
+      "range": 68,
+      "vision": 105,
+      "speed": 7,
+      "damage": 59,
+      "cooldown": 9,
+      "air": false,
+      "sea": true,
+      "slots": 1,
+      "structure": false,
+      "targets": [
+        "sea"
+      ],
+      "members": 1,
+      "formation": "ship",
+      "income": 0,
+      "missile": false,
+      "capture": true,
+      "art": "navy",
+      "name": "Agosta-inspired submarine",
+      "role": "Low-visibility sea control",
+      "availability": {
+        "playerDeployable": false,
+        "scenarioInfrastructure": false,
+        "builtThroughEngineering": false,
+        "opposingAI": true,
+        "opposingInitialSpawn": true,
+        "opposingReinforcement": true,
+        "teams": [
+          "pakistan"
+        ]
+      },
+      "derivedBaseValues": {
+        "movementMapUnitsPerSecond": 6.475574,
+        "effectiveRangeMapUnitsWithRadar": 26.210655,
+        "detectionMapUnitsInClearWeather": 40.472334
+      },
+      "icon": {
+        "glyphName": "Navigation",
+        "glyph": "../images/icons/glyph/agosta.svg",
+        "atlas": {
+          "sourcePath": "game/public/assets/unit-atlas.png",
+          "filename": "unit-atlas.png",
+          "atlasWidth": 1536,
+          "atlasHeight": 1024,
+          "x": 520,
+          "y": 776,
+          "width": 240,
+          "height": 240,
+          "correctionDegrees": 0,
+          "wrapper": "../images/icons/atlas/agosta.svg",
+          "wrapperUsesExternalImage": true,
+          "sharedCropWith": [
+            "submarine"
+          ]
+        }
+      },
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "border-command-portfolio",
+  "private": true,
+  "version": "0.7.0",
+  "description": "Playable strategy game and concise product-development portfolio.",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "setup": "npm --prefix game ci",
+    "dev": "npm --prefix game run dev",
+    "build": "npm --prefix game run build:local",
+    "start": "npm --prefix game run start",
+    "test": "npm --prefix game test",
+    "typecheck": "npm --prefix game run typecheck",
+    "catalog": "node templates/generate-unit-catalog.mjs"
+  }
+}

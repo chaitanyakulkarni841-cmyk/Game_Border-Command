@@ -13,7 +13,7 @@
 
 ## Current repository gate
 
-Importing source is still pending. No GitHub build workflow is claimed to exist in this documentation-only state. The prepared release previously recorded 55 automated checks, but those must be reproducible from the eventual checkout.
+The full source is under `game/`. The [verification workflow](../.github/workflows/ci.yml) runs `npm ci` and `npm test` on Node 24 for pushes and pull requests. v0.7 recorded 80 automated checks, type checking and a production build in the development workspace. Check the remote workflow result separately; the workflow does not deploy the game.
 
 ## Rollback
 

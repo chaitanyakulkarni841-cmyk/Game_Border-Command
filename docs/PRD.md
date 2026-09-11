@@ -1,58 +1,46 @@
 # Product requirements
 
-[Portfolio index](../README.md)
+[Portfolio index](../README.md) · [Decisions](PRODUCT-DECISIONS.md) · [Validation](VALIDATION.md)
 
-**Product:** Border Command  
-**Goal:** a first-time player acts confidently while discovering strategic depth.  
-**Reference:** the latest edited product brief and subsequent control, scale and portfolio requests.  
-**Status:** this document defines intended behaviour; the [validation record](VALIDATION.md) separates recorded implementation checks from unverified experience requirements.
+**Product:** Border Command · **Current specification:** v0.7  
+**Promise:** a first-time player can act immediately, then discover depth through terrain, information, timing and resources.  
+**Audience:** browser strategy players and portfolio reviewers; no installation or long manual.
 
-## Experience
+## Problem and product goal
 
-A complete browser strategy game places the player in command of India against a computer-controlled Pakistan in fictional conventional scenarios. The core loop is **deploy → detect → command → resolve → resupply → complete objectives**. The default session should take approximately 10–15 minutes.
+I wanted combined-arms detail without a complicated command system. Large maps make finding units, issuing orders and noticing attacks harder. I addressed those problems through direct commands, pinned recruitment, automatic local defence and visible consequences.
 
-No required login, paid APIs, live intelligence or backend dependency for core play. Use recognizable regional geography, fictional military sites and normalized platform statistics. Cities are not selectable attack targets. Display “Fictional scenario • Abstracted capabilities.”
+The core loop is **deploy → detect → command → resolve → sustain → complete objectives**. My intended default session is 10–15 minutes, not a measured engagement result. Players should understand their next action and why it succeeds or fails.
 
-## Requirements and acceptance
+## Scope and boundaries
 
-| Priority | Requirement | Acceptance criterion |
+The player commands India against a computer-controlled Pakistan in fictional conventional operations. The map uses recognizable regional geography, bundled terrain and neutral approximate disputed boundaries, including the LoC. Installations, deployments, inventories and performance values are fictional. The interface displays **“Fictional scenario • Abstracted capabilities.”**
+
+I kept cities and civilian centers contextual, not selectable attack targets. Military resource works and logistics bridges can be attacked; nearby panic appears in a separate humanitarian report. Core play requires no login or paid API. Nuclear weapons, live intelligence, operational targeting data and verified real-world engagement envelopes are outside the scope.
+
+## Prioritized requirements and acceptance
+
+| Priority | Player requirement | Acceptance criterion |
 | --- | --- | --- |
-| P0 | Immediate play | Play Now opens a functioning scenario with an objective, resources and controllable units. |
-| P0 | Direct commands | Selecting friendly forces then clicking an eligible detected enemy issues an attack without an additional attack button. Invalid orders explain why. |
-| P0 | Familiar navigation | Ordinary drag pans; Cmd/Ctrl-drag selects multiple units. Zoom and command views retain orientation. |
-| P0 | Visible forces and build | A pinned entry exposes force selection, unit roles, costs and eligible placement. |
-| P0 | Defence deployment | An S-400-inspired battery previews abstract coverage, deploys only where eligible, and has relocation delay, ammunition, damage and supply constraints. |
-| P0 | Meaningful combat | Detection, identification and engagement are separate; ammunition, readiness, supply and damage influence outcomes. |
-| P0 | Active opposition | AI pursues objectives and makes decisions from its own detected information under fog. Difficulty changes actual behaviour and resources. |
-| P0 | Reliable session | Stable timestep, seeded initialization, pause/speed, clean restart, local save/resume and explicit victory/defeat. |
-| P1 | Army control | Multi-selection, numbered groups, queued destinations and formation movement remain usable alongside direct attacks. |
-| P1 | Territory | Connected sector capture changes ownership, resource access and deployment opportunities. |
-| P1 | Terrain and scale | Larger land area and faster movement are tuned independently; crossings and mountain hurdles are highlighted. Engineering equipment enables eligible river passage. |
-| P1 | Combined arms | Aircraft, army, naval, drone, counter-drone, radar, logistics and air-defence roles create support trade-offs. |
-| P1 | Cinematic following | Follow aircraft, missiles or fleets and return immediately to the command map. |
-| P1 | Context events | Diplomatic accept/reject decisions have explained consequences. Civilian panic is contextual and does not decide military victory. |
-| P1 | Readability | Distinct symbols, movement paths, missile effects, layer controls, event feedback and practical touch controls. |
-| P2 | Further presentation | More advanced 3D detail follows stability, clarity and performance validation. |
+| P0 | Start and orient quickly | Play Now opens a running scenario with a visible objective, resources and pinned Forces & Build. |
+| P0 | Give direct orders | Select friendly forces, then click an eligible identified enemy to attack. Ordinary drag pans; Cmd/Ctrl-drag bulk-selects. Rejected actions explain the reason. |
+| P0 | Deploy meaningful defence | Placement previews eligibility and abstract coverage. Setup, relocation, supply, radar, ammunition and engagement-slot constraints remain active. |
+| P0 | Avoid repetitive defence clicks | Ready units react to eligible identified threats in range while respecting cooldown, service and truce states. Recon aircraft do not automatically strike surface targets; cruise launches remain deliberate player orders. |
+| P0 | Understand expanded coverage | Six fighter types have 5× v0.6 detection/engagement radii; S-400/Akash have 4×. Their fictional ground-defence role is restricted to armed mobile land units. No guaranteed interception. |
+| P0 | Recover without constant upkeep | Surviving ready equipment replenishes one round per 24 simulation seconds. Healing starts 20 seconds after damage at 0.15% maximum health per second. Paid service is faster; destroyed assets do not revive automatically. |
+| P0 | Recognize shortages and danger | Armed units with zero ammunition show EMPTY. Grouped attack markers and View/Respond/Previous area controls let players inspect an incident and return. |
+| P0 | Trust the session | Seeded initialization, fixed simulation time, pause/speed, restart, local save/resume and explicit outcomes behave consistently. |
+| P1 | Coordinate combined arms | Groups, queued routes and formations support army, aircraft, naval, drone, engineering and logistics roles. Connected territory unlocks income and deployment. |
+| P1 | Read terrain and infrastructure | Rivers and difficult terrain constrain routes. Destroying a logistics bridge closes its crossing; engineers can rebuild. Preplaced works do not satisfy economy-construction goals. |
+| P1 | Control presentation | Fullscreen, layers, unit inspection, follow/return, sound controls, reduced-motion support and practical touch input keep information accessible. |
+| P1 | Read movement and consequences | Known positions interpolate in map, terrain and follow views. Every mission reports cumulative asset/infrastructure damage, destruction and civilian panic separately from military victory. |
 
-P0 protects the core promise; P1 adds depth; P2 requires evidence of benefit.
+P0 protects the playable loop; P1 deepens decisions without adding mandatory steps to every order.
 
-## Map and visual constraints
+## Content, balance and release gates
 
-Show India and Pakistan with surrounding context, coastlines, mountain relief, major contextual cities and neutral approximate disputed boundaries, including the LoC. Use bundled geography or an offline fallback. Terrain and defence circles express gameplay relationships, not verified real-world protection or navigation data.
+I expanded the original **Shield, Contested Skies and Command Campaign** into [15 operations](../specs/SCENARIOS.md). Easy, Normal, Hard and Custom change resources, activity, damage and information conditions. [Platform specifications](../specs/WEAPONS.md) explain roles and limitations rather than claiming authentic force strength.
 
-## Balance and scenarios
+The current world area is 16× the original baseline, following the reduction from 20×; physical movement remains 3×. I treated these as separate pacing controls, not map-accuracy claims.
 
-Easy slows opposing decisions and provides more player resources; Normal balances them; Hard increases activity and coordination. Custom controls cover resources, activity, fog, damage and starting forces.
-
-The baseline scenarios are **Shield**, **Contested Skies** and **Command Campaign**. Expanded scenarios vary objectives and constraints rather than only increasing unit counts. No platform guarantees victory.
-
-## User stories
-
-- As a new player, I can select, deploy and command without reading a manual.
-- As a returning player, I can combine reconnaissance, supply and terrain choices.
-- As a player interrupted mid-session, I can resume or restart cleanly.
-- As a reviewer, I can trace a requirement to a decision, implementation record and verification status.
-
-## Release definition
-
-Build and type checks pass; deterministic simulation regressions pass; public entry works; no blocking runtime errors in the tested flow; source and documentation agree. Browser, GPU, touch and usability checks must be reported separately. Passing automated checks never warrants “no bugs.”
+Release gates cover build/type/simulation checks, saves, documentation and outcomes. [Validation](VALIDATION.md) separates recorded checks from open interaction and usability work. Cloud saves, multiplayer and photorealistic 3D battles remain outside the delivered scope.

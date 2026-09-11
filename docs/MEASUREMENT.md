@@ -1,40 +1,41 @@
-# Measurement and validation
+# Measurement and validation plan
 
-[Portfolio index](../README.md)
+[Portfolio index](../README.md) · [Release verification](VALIDATION.md)
 
-**Status:** proposed evaluation plan. Targets are acceptance hypotheses, not measured outcomes. Automated checks do not establish that the game is intuitive or enjoyable. No player analytics or retention results are claimed.
+**This is the evaluation I would run next.** The thresholds below are my starting hypotheses, not measured outcomes. Automated checks confirm specific behavior, but they cannot tell me whether people find the game intuitive or enjoyable. I have not claimed player analytics or business returns.
 
-## Product outcome
+## Define success around the core loop
 
-A new player completes a purposeful loop without coaching: **start → deploy → select → move or attack → understand feedback**. Strategic depth matters after this loop is understood.
+I would consider the basic experience successful when a new player can complete **start → deploy → select → move or attack → understand feedback** without coaching. Strategic depth matters after this loop works. The most useful first measure is successful purposeful action, not time spent staring at the map.
 
-## First-session evaluation
+I would start by observing five people unfamiliar with the game using the same starting scenario, difficulty and seed. I would record device and browser. This small study is intended to find usability problems, not estimate population-wide conversion or retention.
 
-Observe five people unfamiliar with the game. This small sample discovers usability problems; it does not estimate population-wide performance. Use the same starting scenario and record device, difficulty and seed.
-
-| Question | Measure | Initial target |
+| Question | Task / measure | Initial acceptance hypothesis |
 | --- | --- | --- |
-| Can players begin? | Time from opening the game to starting a scenario. | At least 4/5 start within 30 seconds without help. |
-| Is the core loop discoverable? | Time to valid deployment and purposeful movement or attack. | At least 4/5 complete both within two minutes. |
-| Can players navigate? | Successful pan, selection and return from cinematic following. | At least 4/5 complete tasks without losing orientation. |
-| Are constraints understandable? | Explanation of a blocked crossing, unavailable order or supply limit. | At least 4/5 identify a valid next action. |
-| Is there a reason to continue? | Voluntary continuation, replay choice and intended next strategy. | Record qualitatively; establish a baseline before setting a rate. |
+| Can players start? | Time from opening the game to a running scenario. | At least 4/5 start within 30 seconds without help. |
+| Can they complete the core loop? | Valid deployment followed by purposeful movement or attack. | At least 4/5 complete both within two minutes. |
+| Can they control the map? | Pan, bulk-select, follow a unit and return. | At least 4/5 complete the sequence without losing orientation. |
+| Can they react to a battle? | Notice an alert, focus it, locate a response option and return. | At least 4/5 complete the sequence without coaching. |
+| Do upkeep choices make sense? | Explain EMPTY, passive recovery and faster paid service. | At least 4/5 predict which action costs credits and which requires waiting. |
+| Are obstacles and results understandable? | Explain a blocked bridge and distinguish military result from cumulative damage/panic. | At least 4/5 identify a valid route or engineering action and interpret the report. |
+| Is there a reason to continue? | Voluntary continuation, replay choice and intended next strategy. | Record qualitatively first; set a rate only after a baseline exists. |
 
-Ask what players expect before acting. Record unintended orders, repeated clicks, overlooked controls and requests for help. Distinguish control failures from deliberate strategic mistakes.
+I would ask what players expect before they act, then record unintended commands, repeated clicks, missed controls, waiting and requests for help. I would separate confusing controls from deliberate strategic mistakes.
 
-## Engineering gates
+## Three evidence layers
 
-| Risk | Verification |
-| --- | --- |
-| Orders/resources behave inconsistently. | Deterministic movement, combat, deployment, supply and objective tests. |
-| Pause/save/restart corrupts a session. | State-transition and save compatibility checks. |
-| AI or fog reveals hidden information. | Detection and engagement regressions. |
-| Documentation overstates a release. | Compare test records with the identified source revision; list unverified browser/GPU/touch behaviour. |
+| Layer | What to check | What it cannot prove |
+| --- | --- | --- |
+| Simulation regression | Detection, compatible targets, orders, resource limits, maintenance timing, bridges, reports and save migration. | Visual smoothness or scenario enjoyment. |
+| Interface and performance | Actual clicks, keyboard/touch, panel readability, camera return, frame responsiveness and fallback behavior. | Long-term engagement from a single session. |
+| Product observation | Task completion, explanations, confusion patterns and voluntary replay. | Broad market demand from five participants. |
 
-## Optional instrumentation
+Use [release verification](VALIDATION.md) for the actual source revision and recorded checks. Compare range and upkeep variants using matched seeds and identical scripted conditions before attributing balance changes to a parameter. Record losses, engagement timing and resource spending; avoid changing several parameters at once.
 
-If anonymous telemetry is added later, begin with only `scenario_started`, `unit_deployed`, `order_accepted`, `order_rejected`, `scenario_completed` and `replay_started`. Use aggregated counts and elapsed time; no free text, personal identifiers or actual geographic locations. Observation is sufficient for the first study.
+## Optional future instrumentation
 
-## Decision rules
+If I add telemetry, I would begin with aggregate counts and elapsed times for `scenario_started`, `unit_deployed`, `order_accepted`, `order_rejected`, `attack_alert_focused`, `service_requested`, `scenario_completed` and `replay_started`. I would avoid free text, personal identifiers and real geographic locations. Telemetry is not currently implemented.
 
-Fix blockers before adding features. If a control is missed, improve placement or wording before adding another tutorial. If movement creates waiting, tune pacing without changing every simulation system. Repeat the affected task and publish results with sample size, method and limitations.
+## Decisions after evaluation
+
+I would fix blockers before expanding features. If a control is missed, I would improve its placement or wording before adding another tutorial. If broader coverage removes meaningful positioning, I would retune coverage rather than add compensating complexity. I would repeat the affected task and publish the method, sample size, result and remaining uncertainty.

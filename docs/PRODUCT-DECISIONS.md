@@ -1,32 +1,32 @@
-# Product decisions
+# Product decisions and trade-offs
 
-[Portfolio index](../README.md)
+[Portfolio index](../README.md) · [Version evolution](../versions/README.md)
 
-Border Command explores one product question: **can a first-time player make a meaningful command immediately, then discover strategic depth through play?** The design grew from repeated creator feedback; this is an iterative portfolio prototype, not evidence of a completed user-research programme.
+**I wanted people to understand the game quickly, then discover its depth through play.** I refined the requirements over successive versions, especially where realism was making the controls or pacing harder to understand. The decisions below reflect that iteration; I have not presented my own feedback as an external user study.
 
-## Player and job to be done
+## From feedback to a product decision
 
-The intended player is curious about military strategy but unwilling to learn a dense control manual. Their job is: “Help me understand the situation, act confidently, and see why my decision mattered.” An experienced player should still find value in formations, supply, reconnaissance and replayable scenarios.
-
-## Decisions and trade-offs
-
-| Request or constraint | Product decision | Trade-off and next check |
+| Feedback or constraint | Decision implemented | Trade-off / question to test |
 | --- | --- | --- |
-| Attacks required too many steps. | Select a friendly unit, then click an eligible enemy to issue an attack. | Faster input increases accidental-order risk; check selection and order feedback. |
-| Forces and construction were difficult to find. | Keep **Forces & Build** prominent; provide quick deployment and map placement. | Persistent controls consume map space; check desktop and small-screen usability separately. |
-| Navigation should feel familiar. | Ordinary drag pans; Cmd/Ctrl-drag selects multiple units; formations remain available. | Modified gestures are less discoverable; retain visible hints and practical touch controls. |
-| A larger theatre should remain engaging. | Separate world-area scaling from unit movement and simulation time. | Longer routes can create idle time; assess pacing instead of assuming “larger” means “better.” |
-| Terrain should affect decisions. | Highlight crossings and mountain hurdles, with engineers supporting river passage. | Constraints can feel arbitrary; explain blocked orders and show valid alternatives. |
-| Realism should support playability. | Recognizable geography and platform-inspired units with fictional sites and normalized capabilities. | Sacrifices technical fidelity while supporting balance and avoiding operational-accuracy claims. |
+| “Attack when I click the enemy.” | Select a friendly unit, then click an eligible detected target; remove a redundant attack-confirmation step. | Fewer clicks increase accidental-order risk. Are selection and accepted orders unmistakable? |
+| “Manual drag was easier.” | Ordinary drag pans; Cmd/Ctrl-drag bulk-selects. Keep numbered groups, queued routes and formations. | Familiar navigation is prioritized; selection modifiers need visible hints. |
+| “Forces and build should be pinned.” | Keep recruitment and construction in a persistent, prominent entry point with role, cost and placement feedback. | Map space is limited, especially on small screens. |
+| “Make the land 20× larger, movement 3×.” Later: “20% smaller.” | Separate world-area scaling from movement. The current theatre is 16× the original area baseline, with 3× world movement. | Scale is a pacing variable, not proof of quality. Measure waiting and orientation rather than maximizing size. |
+| “Units should defend nearby automatically.” | Ready combat formations engage eligible identified threats locally; direct orders remain available. | Reduce repeated commands while preserving target compatibility, ammunition, cooldowns and special manual-launch rules. |
+| “Alert me and let me reach the attack.” | Group incidents, mark the map, offer View attack / J, Respond and Previous area. | Avoid alert fatigue and never expose an unseen attacker through a notification. |
+| “Resupply and healing should happen slowly.” | Restore one ammunition unit every 24 seconds; heal 0.15% of maximum health per second after 20 seconds without damage. Keep faster paid service and EMPTY labels. | Upkeep becomes optional intervention, but recovery time must still matter. Destroyed equipment does not revive itself. |
+| “Increase interception and detection.” | Fighter coverage grows 5× and S-400/Akash coverage 4× relative to v0.6; eligible armed ground vehicles can also be engaged by these fictional SAM archetypes. | Broader coverage creates action sooner but may weaken positioning decisions. Other unit multipliers remain unchanged. |
+| “Add bridges, industry and a mission scoreboard.” | Seed fictional military works, make bridges attackable/rebuildable, and retain cumulative damage and combat-panic reporting. | Scenario works must not grant free economic wins. Civilian impact is reported separately from military victory. |
+| “Movement should be smooth.” | Interpolate known positions and headings between fixed simulation steps in both views and following cameras. | Improve presentation without changing simulation outcomes or predicting hidden contacts. |
 
-## Prioritization
+## How I prioritized
 
-**Core promise:** start, deploy, select, move or attack, understand feedback, and reach an outcome. Reliability, discoverability and save/restart behaviour protect this promise.
+**I protected the core loop first:** launch, deploy, command, understand feedback and reach an outcome. Save integrity, rejected-order explanations and reliable restart behavior support every scenario.
 
-**Depth:** connected sectors, logistics, fog of war, formations, drones and defence placement create choices after the basics are learned.
+**I added depth through interacting constraints:** terrain and crossings shape routes; reconnaissance determines eligible contacts; supply and maintenance affect readiness; connected sectors provide territory value. Additional platforms should offer a distinct role, not merely a larger list.
 
-**Presentation:** terrain relief, unit silhouettes and cinematic following make action easier to read. These should earn their rendering cost; the command map remains the dependable fallback.
+**I wanted presentation to support judgment:** recognizable silhouettes, terrain relief, coverage previews and attack markers should help players read the situation. The dependable command map remains available when 3D is unsuitable.
 
-## Evidence and next decision
+## Evidence and the next decision
 
-The record establishes implementation and creator-led iteration. It does not establish usability, retention or engagement improvement. Next, run an observed first-session test using [the measurement plan](MEASUREMENT.md); prioritize the most frequent failure before expanding the roster again.
+The [engine](../game/lib/game/engine.ts), [maintenance rules](../game/lib/game/maintenance.ts), [alerts](../game/lib/game/alerts.ts) and [regressions](../game/tests/maintenance-infrastructure.test.mjs) make these choices inspectable. These checks establish behavior; they do not show whether people enjoy it more. Before adding another major interface layer, I would run the [first-session evaluation](MEASUREMENT.md) and prioritize the most common failure it reveals.

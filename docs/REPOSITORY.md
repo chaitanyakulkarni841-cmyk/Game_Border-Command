@@ -10,12 +10,10 @@ Website: [Play Border Command](https://border-command.chaitanyakulkarni841.chatg
 
 Suggested topics: `strategy-game`, `browser-game`, `product-management`, `product-design`, `typescript`, `portfolio`.
 
-The description is included in the root README. Updating GitHub's separate About description, website field or topics requires a repository-settings capability; the connected file-editing integration does not expose that action.
-
 ## Structure
 
-The portfolio uses the supplied reference's folder and numbered-index pattern only. All content describes Border Command; no biography, claims or enterprise-project material is copied from the reference.
+I reused the numbered index and folder pattern from my earlier portfolio so reviewers can move from the product question to requirements, decisions and delivery evidence. The material here is specific to Border Command.
 
 ## Source import
 
-The preceding work prepared a complete source-and-documentation ZIP. Its workspace is currently disconnected, so this repository contains documentation and a public play link while source import is pending. Do not infer that repository code or a CI pipeline exists until the import is completed.
+The full v0.7 source snapshot is included in [game/](../game/), with its lockfile, tests, bundled assets and preserved executable scripts. Root npm commands provide setup, development, build and verification. The [GitHub workflow](../.github/workflows/ci.yml) verifies pushes and pull requests. Original source revisions are provenance records; this import does not fabricate historical release tags.

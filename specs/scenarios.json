@@ -1,0 +1,181 @@
+{
+  "note": "Fictional scenario configuration. Durations are simulation seconds.",
+  "defaultSettings": {
+    "scenario": "shield",
+    "difficulty": "normal",
+    "resources": 1,
+    "activity": 1,
+    "damage": 1,
+    "fog": true,
+    "forces": 2,
+    "seed": 841,
+    "forceScale": 1
+  },
+  "scenarios": {
+    "shield": {
+      "tag": "AIR DEFENCE",
+      "duration": 600,
+      "focus": "air",
+      "goal": 0,
+      "mode": "survive",
+      "weather": "clear",
+      "intensity": 1,
+      "name": "Shield",
+      "description": "Keep at least two of the three original command posts operational for 10 minutes."
+    },
+    "skies": {
+      "tag": "AIR SUPERIORITY",
+      "duration": 720,
+      "focus": "air",
+      "goal": 360,
+      "mode": "control",
+      "weather": "clear",
+      "intensity": 1,
+      "name": "Contested Skies",
+      "description": "Patrol three airspace sectors. Reach 360 control points, or lead at the deadline."
+    },
+    "campaign": {
+      "tag": "CAMPAIGN",
+      "duration": 900,
+      "focus": "joint",
+      "goal": 0,
+      "mode": "destroy",
+      "weather": "clear",
+      "intensity": 1,
+      "name": "Command Campaign",
+      "description": "Discover and disable all three original opposing command posts. Preserve one of yours."
+    },
+    "armor": {
+      "tag": "LAND OFFENSIVE",
+      "duration": 660,
+      "focus": "army",
+      "goal": 45,
+      "mode": "control",
+      "weather": "clear",
+      "intensity": 0.8,
+      "name": "Desert Spear",
+      "description": "Capture the three desert sectors with ground forces and hold them together for 45 seconds."
+    },
+    "seacontrol": {
+      "tag": "NAVAL CONTROL",
+      "duration": 660,
+      "focus": "navy",
+      "goal": 300,
+      "mode": "control",
+      "weather": "clear",
+      "intensity": 1,
+      "name": "Ocean Sentinel",
+      "description": "Control three Arabian Sea sectors with warships. Reach 300 points, or lead at the deadline."
+    },
+    "convoy": {
+      "tag": "GROUND ESCORT",
+      "duration": 720,
+      "focus": "army",
+      "goal": 2,
+      "mode": "escort",
+      "weather": "clear",
+      "intensity": 0.8,
+      "name": "Supply Corridor",
+      "description": "Escort at least two of the three marked supply columns to the southern rally zone."
+    },
+    "harborwatch": {
+      "tag": "CONVOY AT SEA",
+      "duration": 720,
+      "focus": "navy",
+      "goal": 2,
+      "mode": "escort",
+      "weather": "clear",
+      "intensity": 0.8,
+      "name": "Harbor Watch",
+      "description": "Sail both marked replenishment ships into the offshore rendezvous zone. Keep both alive."
+    },
+    "runway": {
+      "tag": "AIRFIELD RAID",
+      "duration": 780,
+      "focus": "air",
+      "goal": 0,
+      "mode": "destroy",
+      "weather": "clear",
+      "intensity": 1,
+      "name": "Runway Denial",
+      "description": "Locate and disable three designated fictional opposing airfields. Keep a command post operational."
+    },
+    "missileraid": {
+      "tag": "PRECISION STRIKE",
+      "duration": 720,
+      "focus": "army",
+      "goal": 0,
+      "mode": "destroy",
+      "weather": "clear",
+      "intensity": 0.65,
+      "name": "Distant Thunder",
+      "description": "Scout and disable the two marked fictional military installations. Cruise batteries require manual launch orders."
+    },
+    "economy": {
+      "tag": "BASE BUILDING",
+      "duration": 840,
+      "focus": "build",
+      "goal": 2000,
+      "mode": "economy",
+      "weather": "clear",
+      "intensity": 0.55,
+      "name": "Iron Economy",
+      "description": "Earn 2,000 credits during the round and complete two resource works plus one additional command base."
+    },
+    "recon": {
+      "tag": "RECONNAISSANCE",
+      "duration": 600,
+      "focus": "air",
+      "goal": 3,
+      "mode": "recon",
+      "weather": "night",
+      "intensity": 0.6,
+      "name": "Night Watch",
+      "description": "Identify all three marked enemy military sites under reduced night visibility. Keep a command post alive."
+    },
+    "monsoon": {
+      "tag": "EXTREME WEATHER",
+      "duration": 600,
+      "focus": "joint",
+      "goal": 0,
+      "mode": "survive",
+      "weather": "storm",
+      "intensity": 0.85,
+      "name": "Monsoon Shield",
+      "description": "Preserve two original command posts through ten minutes of reduced visibility and slower air movement."
+    },
+    "laststand": {
+      "tag": "SURVIVAL",
+      "duration": 480,
+      "focus": "army",
+      "goal": 0,
+      "mode": "survive",
+      "weather": "clear",
+      "intensity": 0.8,
+      "name": "Last Light",
+      "description": "One command post remains. Hold it for eight minutes against six increasingly strong waves."
+    },
+    "joint": {
+      "tag": "JOINT CAMPAIGN",
+      "duration": 900,
+      "focus": "joint",
+      "goal": 2,
+      "mode": "joint",
+      "weather": "clear",
+      "intensity": 0.8,
+      "name": "Three Fronts",
+      "description": "Hold two land sectors, disable two marked enemy airfields, and retain at least one warship."
+    },
+    "sandbox": {
+      "tag": "SANDBOX",
+      "duration": 1800,
+      "focus": "joint",
+      "goal": 0,
+      "mode": "sandbox",
+      "weather": "clear",
+      "intensity": 0.7,
+      "name": "Open Command",
+      "description": "Build an army, expand your bases, and control land, air and sea. End the exercise when you choose."
+    }
+  }
+}
