@@ -4,7 +4,7 @@
 
 I built Border Command around one question: **can a strategy game be easy to start and still have enough depth to keep someone interested?** I wanted players to make decisions about forces, terrain and resources without spending their first session learning a complicated interface. This game has all state of the art weapons that you can play with including Sukoi MK30, Rafale, Brahmos and S400. It has over 30 different war simulation scenarios, and you can also disable opponent infrastructure to paralize their systems movement.
 
-You command India in fictional conventional scenarios against a computer-controlled Pakistan. Aircraft, ground formations, naval units, drones and air defences have different roles, while connected territory, river crossings and supplies shape your choices.
+You command India in fictional conventional scenarios against a computer-controlled opponent country. Aircraft, ground formations, naval units, drones and air defences have different roles, while connected territory, river crossings and supplies shape your choices.
 
 **[▶ Play Border Command](https://border-command.chaitanyakulkarni841.chatgpt.site)** · [Quick controls](docs/CONTROLS.md) · [How the game evolved](versions/README.md)
 
